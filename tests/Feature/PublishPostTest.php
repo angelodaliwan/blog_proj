@@ -12,9 +12,16 @@ class PublishPostTest extends TestCase
     use RefreshDatabase;
 
     /** @test **/
+    function shows_the_posts_list(){
+        $this->get('/posts')
+            ->assertStatus(200);
+    }
+
+
+    /** @test **/
     function it_publish_the_post(){
 
-        $this->post('/publish', [
+        $this->post('/posts', [
            'title' => 'Test Title',
            'body' => 'Test Message'
         ])->assertStatus(302);
@@ -28,7 +35,7 @@ class PublishPostTest extends TestCase
     /** @test */
     function it_validates_the_fields()
     {
-        $this->post('/publish', [
+        $this->post('/posts', [
                        'title' => '',
                        'body' => 'Test Message'
             ])->assertStatus(302);

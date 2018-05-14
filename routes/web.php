@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 
-Route::post('/publish', 'PostsController@store');
+Route::get('/posts', 'PostsController@index');
+Route::post('/posts', 'PostsController@store');

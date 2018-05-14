@@ -8,12 +8,18 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+
+    public function index()
+    {
+        return view('posts.index');
+    }
+
     public function store(PostFormRequest $request)
     {
         $post = new Post();
 
         $post->publish(request('title'), request('body'));
 
-        return redirect('/publish');
+        return redirect('/posts');
     }
 }
