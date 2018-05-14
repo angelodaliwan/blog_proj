@@ -13,7 +13,7 @@ class PublishPostTest extends TestCase
     use RefreshDatabase;
 
     /** @test **/
-    function it_publish_the_post()
+    function it_test_the_publish_method()
     {
         $post = new Post();
 
